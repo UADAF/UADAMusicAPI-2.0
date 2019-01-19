@@ -25,4 +25,6 @@ open class MusicData(val name: String, val type: MusicDataType, val parent: Musi
         this.children = children
     }
 
+    override fun toString() = name
+
 }
