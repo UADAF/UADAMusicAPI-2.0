@@ -1,7 +1,5 @@
 import com.google.gson.JsonParseException
-import utils.JSON_PARSER
-import utils.contains
-import utils.str
+import utils.*
 import java.lang.IllegalStateException
 import java.nio.file.Files
 import java.nio.file.Path
@@ -38,7 +36,7 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(), CONTE
             return null
         }
         val json = try {
-            JSON_PARSER.parse(Files.newBufferedReader(jsonFile)).asJsonObject
+            JSON_PARSER.parse(jsonFile).obj
         } catch (e: JsonParseException) {
             println("Unable to parse music.info.json in $p. Ignoring") //TODO: Replace with logger
             return null

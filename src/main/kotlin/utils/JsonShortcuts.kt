@@ -3,6 +3,9 @@ package utils
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import com.google.gson.JsonParser
+import java.nio.file.Files
+import java.nio.file.Path
 import java.util.*
 import java.util.function.BiConsumer
 import java.util.function.BinaryOperator
@@ -72,3 +75,5 @@ val jsonArrayCollector: Collector<String, JsonArray, JsonArray> = Collector.of<S
     l.addAll(r)
     l
 })
+
+fun JsonParser.parse(file: Path): JsonElement = parse(Files.newBufferedReader(file))
