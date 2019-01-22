@@ -1,5 +1,6 @@
 import com.google.gson.JsonParseException
 import utils.JSON_PARSER
+import utils.contains
 import utils.str
 import java.lang.IllegalStateException
 import java.nio.file.Files
@@ -45,7 +46,7 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(), CONTE
             println("Unable to parse music.info.json in $p. Ignoring") //TODO: Replace with logger
             return null
         }
-        if(!json.has("type")) {
+        if("type" !in json) {
             println("No type specified in music.info.json in $p. Ignoring") //TODO: Replace with logger
             return null
         }
