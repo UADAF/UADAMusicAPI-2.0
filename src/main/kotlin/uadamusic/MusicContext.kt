@@ -1,4 +1,10 @@
+package uadamusic
+
 import com.google.gson.JsonParseException
+import uadamusic.utils.JSON_PARSER
+import uadamusic.utils.obj
+import uadamusic.utils.parse
+import uadamusic.utils.str
 import utils.*
 import java.lang.IllegalStateException
 import java.nio.file.Files
@@ -6,7 +12,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import kotlin.streams.asSequence
 
-class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(), CONTEXT, null, null, null, ".mp3") {
+class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(),
+    CONTEXT, null, null, null, ".mp3") {
 
 
     init {

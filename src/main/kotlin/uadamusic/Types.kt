@@ -1,4 +1,4 @@
-
+package uadamusic
 
 data class MusicDataType(val name: String) {
 

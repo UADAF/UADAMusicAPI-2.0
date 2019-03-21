@@ -1,4 +1,4 @@
-package utils
+package uadamusic.utils
 
 import com.google.gson.JsonParser
 

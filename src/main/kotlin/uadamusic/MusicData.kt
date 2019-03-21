@@ -1,4 +1,4 @@
-
+package uadamusic
 
 open class MusicData(val name: String, val type: MusicDataType, val parent: MusicData?,
                      private val _title: String?, private val _img: String?, private val _format: String?) {
