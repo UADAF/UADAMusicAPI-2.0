@@ -17,7 +17,7 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(),
     }
 
 
-    fun load(data: MusicData) {
+    private fun load(data: MusicData) {
         val p = Paths.get(data.path)
         data.initChildren(Files.list(p).asSequence().map {
             if(Files.isRegularFile(it)) {
@@ -32,7 +32,7 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(),
         }.filterNotNull().toList())
     }
 
-    fun load(p: Path, parent: MusicData?): MusicData? {
+    private fun load(p: Path, parent: MusicData?): MusicData? {
         val jsonFile = p.resolve("music.info.json")
         if(!Files.exists(jsonFile)) {
             println("music.info.json not found in $p. Ignoring") //TODO: Replace with logger
