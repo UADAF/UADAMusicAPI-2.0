@@ -21,7 +21,11 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(),
         val p = Paths.get(data.path)
         data.initChildren(Files.list(p).asSequence().map {
             if(Files.isRegularFile(it)) {
-                MusicData(it.fileName.toString().removeSuffix(data.format!!), SONG, data, null, null, null)
+                if(it.fileName.toString() != "music.info.json") {
+                    MusicData(it.fileName.toString().removeSuffix(data.format!!), SONG, data, null, null, null)
+                } else {
+                    null
+                }
             } else {
                 val d = load(it, data)
                 if(d != null) {
