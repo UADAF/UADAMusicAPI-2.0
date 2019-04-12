@@ -55,7 +55,7 @@ class MusicContext(dir: Path) : MusicData(dir.toAbsolutePath().toString(),
         val title = json["title"]?.str
         val img = json["img"]?.str
         val format = json["format"]?.str
-        return MusicData(p.fileName.toString(), MusicDataType[type]!!, parent, title, img, format)
+        return MusicData(p.fileName.toString().removeSuffix(format ?: parent?.format ?: this.format!!), MusicDataType[type]!!, parent, title, img, format)
     }
 
 }
