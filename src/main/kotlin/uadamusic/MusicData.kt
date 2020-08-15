@@ -6,7 +6,7 @@ open class MusicData(
 ) {
 
     val path: String
-        get() = "${parent?.path ?: ""}/$name${if (type == SONG) "$format" else ""}"
+        get() = "${parent?.path + "/" ?: ""}$name${if (type == SONG) "$format" else ""}"
 
     val title: String
         get() = _title ?: name
