@@ -2,12 +2,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.api.tasks.bundling.Jar
 
 plugins {
-    kotlin("jvm") version "1.3.20"
+    kotlin("jvm") version "1.3.71"
     `maven-publish`
 }
 
 group = "com.uadaf"
-version = "2.5"
+version = "2.5.1"
 
 repositories {
     mavenCentral()
@@ -37,7 +37,7 @@ publishing {
     publications {
         create("mavenJava", MavenPublication::class.java) {
             from(components["java"])
-            artifact(sourcesJar)
+            artifact("sourcesJar")
         }
     }
 }
